@@ -1,0 +1,27 @@
+[ERR!] cwd  : E:\GitHub\PPismNode
+[ERR!] os   : Windows_NT 10.0.10586
+[ERR!] argv : "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\yingu\\AppData\\Roaming\\npm\\node_modules\\tsd\\build\\cli.js" "install" "express"
+[ERR!] node : v5.1.0
+[ERR!] tsd  : 0.6.5
+[ERR!] Error: connect ETIMEDOUT 204.13.251.16:443
+[ERR!] CODE : ETIMEDOUT
+[ERR!] connect ETIMEDOUT 204.13.251.16:443
+This is most likely not a problem with tsd itself
+and is related to network connectivity.
+In most cases you are behind a proxy or have bad network settings.
+
+If you are behind a proxy, please make sure that the
+'proxy' config is set properly.  See: https://github.com/DefinitelyTyped/tsd#tsdrc
+[ERR!] 
+Error: connect ETIMEDOUT 204.13.251.16:443
+    at Object.exports._errnoException (util.js:856:11)
+    at exports._exceptionWithHostPort (util.js:879:20)
+    at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1063:14)
+
+[ERR!] tsd.json: {"version":"v4","repo":"borisyankov/DefinitelyTyped","ref":"master","path":"typings","bundle":"typings/tsd.d.ts","installed":{"express/express.d.ts":{"commit":"32f0a90dab26f70b206407ac24d4d622d0f0f408"},"node/node.d.ts":{"commit":"8cd79728efa7652d934b2703feeb68bb4802aebb"},"serve-favicon/serve-favicon.d.ts":{"commit":"32f0a90dab26f70b206407ac24d4d622d0f0f408"},"morgan/morgan.d.ts":{"commit":"32f0a90dab26f70b206407ac24d4d622d0f0f408"},"cookie-parser/cookie-parser.d.ts":{"commit":"32f0a90dab26f70b206407ac24d4d622d0f0f408"},"body-parser/body-parser.d.ts":{"commit":"32f0a90dab26f70b206407ac24d4d622d0f0f408"},"debug/debug.d.ts":{"commit":"32f0a90dab26f70b206407ac24d4d622d0f0f408"},"jquery/jquery.d.ts":{"commit":"36c6ce86fb64bafb28ec95dc78c6b98228b45c8d"},"request/request.d.ts":{"commit":"8cd79728efa7652d934b2703feeb68bb4802aebb"},"form-data/form-data.d.ts":{"commit":"8cd79728efa7652d934b2703feeb68bb4802aebb"},"request-promise/request-promise.d.ts":{"commit":"8cd79728efa7652d934b2703feeb68bb4802aebb"},"bluebird/bluebird.d.ts":{"commit":"8cd79728efa7652d934b2703feeb68bb4802aebb"}}}
+
+[ERR!] .tsdrc could not be retrieved
+
+[ERR!] Please include the following file with any support request:
+    E:\GitHub\PPismNode\tsd-debug.log
+

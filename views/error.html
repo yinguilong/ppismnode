@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>完美主义</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Bootstrap 3.3.5 -->
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="/css/AdminLTE.css">
+  <!-- AdminLTE Skins. Choose a skin from the css/skins
+       folder instead of downloading all of them to reduce the load. -->
+  <link rel="stylesheet" href="/css/skins/_all-skins.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="/cdn/html5shiv.min.js"></script>
+  <script src="/cdn/respond.min.js"></script>
+  <![endif]-->
+</head>
+<!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+
+<body class="hold-transition skin-blue layout-top-nav">
+  <div class="wrapper">
+
+    <header class="main-header">
+      <nav class="navbar navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="/" class="navbar-brand"><b>完美</b>主义</a>
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+              <i class="fa fa-bars"></i>
+            </button>
+          </div>
+
+          <!-- Navbar Right Menu -->
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <!-- Messages: style can be found in dropdown.less-->
+              <li>
+                <!-- Menu toggle button -->
+                <a href="/users/login" class="dropdown-toggle" >
+                  <i class="fa fa-user-md"></i>
+                  <span class="class=" hidden-xs "">登录</span>
+                </a>
+              </li>
+              <li>
+                <!-- Menu toggle button -->
+                <a href="/users/register" class="dropdown-toggle">
+                  <i class="fa fa-plus-square"></i>
+                  <span class="class=" hidden-xs "">注册</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- /.navbar-custom-menu -->
+        </div>
+        <!-- /.container-fluid -->
+      </nav>
+    </header>
+    <!-- Full Width Column -->
+    <div class="content-wrapper">
+      <div class="container">
+        <!-- Main content -->
+        <section class="content">
+          <div class="callout callout-danger">
+            <h4>对不起!</h4> <%= message %>
+            <% if(toUrl!=""){ %>
+             <a href="<%=toUrl %>"><%= toUrlTitle %></a>
+            <% } %>
+          </div>
+          <!-- /.box -->
+        </section>
+        <!-- /.content -->
+      </div>
+      <!-- /.container -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="pull-right hidden-xs">
+          <b>Version</b> 0.0.1
+        </div>
+        <strong>Copyright &copy; 2014-2015 <a href="http://www.ppism.com">完美主义</a>.</strong> All rights reserved.
+      </div>
+      <!-- /.container -->
+    </footer>
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- jQuery 2.1.4 -->
+  <script src="/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+  <!-- Bootstrap 3.3.5 -->
+  <script src="/bootstrap/js/bootstrap.min.js"></script>
+  <!-- SlimScroll -->
+  <script src="/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+  <!-- FastClick -->
+  <script src="/plugins/fastclick/fastclick.js"></script>
+</body>
+
+</html>

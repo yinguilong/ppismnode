@@ -1,0 +1,26 @@
+{
+  "name": "PPismNode",
+  "version": "0.0.0",
+  "description": "PPism Web by Nodejs",
+  "main": "app.js",
+  "author": {
+    "name": "yinguilong",
+    "email": "1069880905@qq.com"
+  },
+  "dependencies": {
+    "bluebird": "^3.0.6",
+    "body-parser": "^1.13.3",
+    "cookie-parser": "^1.3.5",
+    "debug": "^2.2.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "form-data": "^0.2.0",
+    "http": "0.0.0",
+    "morgan": "^1.6.1",
+    "request": "^2.67.0",
+    "request-promise": "^1.0.2",
+    "serve-favicon": "^2.3.0",
+    "tsd": "^0.6.5",
+    "typescript": "^1.6.2"
+  }
+}

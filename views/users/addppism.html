@@ -1,0 +1,181 @@
+<% include ../_header.html %>
+
+
+    <% if(userDto!=undefined)
+          {
+          var headerImg=userDto.headerImg==undefined?"/img/user3-128x128.jpg":userDto.headerImg;
+          
+          %>
+        <div class="wrapper">
+
+            <% include _userheader.html %>
+                <!-- Left side column. contains the logo and sidebar -->
+                <% include _userleft.html %>
+                    <!-- Content Wrapper. Contains page content -->
+                    <!-- Content Wrapper. Contains page content -->
+                    <div class="content-wrapper">
+                        <!-- Content Header (Page header) -->
+                        <section class="content-header">
+                            <h1>
+        关注
+        <small>收藏商品</small>
+      </h1>
+                            <ol class="breadcrumb">
+                                <li><a href="/users/myspace"><i class="fa fa-dashboard"></i> 主页</a></li>
+                                <li class="active">关注</li>
+                            </ol>
+                        </section>
+
+                        <div class="pad margin no-print">
+
+                            <% if(typeof note == 'undefined')
+								{ %>
+                                <div class="callout callout-info" style="margin-bottom: 0!important;">
+                                    <h4><i class="fa fa-info"></i> 注意:</h4> 添加关注商品，注意商品地址准确，添加完毕后，如果有其他人收藏过这个商品，可以直接查看商品价格波动
+                                </div>
+                                <% }
+								else if(note=="成功") {
+								%>
+                                    <div class="callout callout-success" style="margin-bottom: 0!important;">
+                                        <h4><i class="fa fa-info"></i> 恭喜:</h4>关注成功，可惜没有其他人关注该商品，可以继续添加，或者去看<a href="/users/ppisms">关注列表</a>
+                                    </div>
+                                    <% } else {
+								%>
+                                        <div class="callout callout-danger" style="margin-bottom: 0!important;">
+                                            <h4><i class="fa fa-info"></i> 抱歉:</h4>关注未成功，可以继续添加，或者去看<a href="/users/ppisms">关注列表</a>
+                                        </div>
+                                        <% } %>
+                        </div>
+
+                        <!-- Main content -->
+                        <section class="content">
+                            <div class="col-md-12">
+                                <!-- Horizontal Form -->
+                                <div class="box box-info">
+                                    <div class="box-header with-border">
+                                        <h3 class="box-title">填写商品相关信息</h3>
+                                    </div>
+                                    <!-- /.box-header -->
+                                    <!-- form start -->
+                                    <form role="form" action="/users/addppism" method="post">
+                                        <div class="box-body">
+                                            <div class="form-group">
+                                                <label>商品网址</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa  fa-internet-explorer"></i></span>
+                                                    <input type="text" class="form-control" onkeyup="SubMit()" name="ListenUrl" id="inputUrl" placeholder="网址">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>商品名称</label>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon"><i class="fa fa-info-circle"></i></span>
+                                                    <input type="text" class="form-control" onkeyup="SubMit()" name="ItemName" maxlength="20" id="inputName" placeholder="商品名称">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>商品类型</label>
+                                               
+
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="">
+                                                    <input type="radio" name="ItemType" value="1" checked="checked" class="minimal" style="position: absolute; opacity: 0;">外设
+                                                </label>
+                                                 <label class="">
+                                                    <input type="radio" name="ItemType" value="2" class="minimal" style="position: absolute; opacity: 0;">电脑
+                                                </label>
+                                                 <label class="">
+                                                    <input type="radio" name="ItemType" value="3" class="minimal" style="position: absolute; opacity: 0;">外套
+                                                </label>
+                                                 <label class="">
+                                                    <input type="radio" name="ItemType" value="4" class="minimal" style="position: absolute; opacity: 0;">裤子
+                                                </label>
+                                                  <label class="">
+                                                    <input type="radio" name="ItemType" value="5" class="minimal" style="position: absolute; opacity: 0;">皮鞋
+                                                </label>
+                                                  <label class="">
+                                                    <input type="radio" name="ItemType" value="6" class="minimal" style="position: absolute; opacity: 0;">运动鞋
+                                                </label>
+                                                  <label class="">
+                                                    <input type="radio" name="ItemType" value="7" class="minimal" style="position: absolute; opacity: 0;">运动装
+                                                </label>
+                                                  <label class="">
+                                                    <input type="radio" name="ItemType" value="9" class="minimal" style="position: absolute; opacity: 0;">图书
+                                                </label>
+                                                   <label class="">
+                                                    <input type="radio" name="ItemType" value="8" class="minimal" style="position: absolute; opacity: 0;">手机
+                                                </label>
+                                                <label class="">
+                                                    <input type="radio" name="ItemType" value="10" class="minimal" style="position: absolute; opacity: 0;">食品
+                                                </label>
+                                                 <label class="">
+                                                    <input type="radio" name="ItemType" value="11" class="minimal" style="position: absolute; opacity: 0;">水具
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>简介</label>
+                                                <textarea class="form-control" onkeyup="SubMit()" name="Description" id="texDescription" rows="3" placeholder="填写商品简介，方便其他人快速了解"></textarea>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-body -->
+                                        <div class="box-footer">
+                                            <button type="submit" class="btn btn-info pull-right" onclick="return SubMit()">确认</button>
+                                        </div>
+                                        <!-- /.box-footer -->
+                                    </form>
+                                </div>
+                                <!-- /.box -->
+                            </div>
+                        </section>
+                        <!-- /.content -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- /.content-wrapper -->
+                    <% include _usercopright.html %>
+                        <% include _userright.html %>
+
+        </div>
+        <% } %>
+            <% include ../_commonjs.html %>
+                <script src="/plugins/regex/regexenum.js"></script>
+                <script>
+                    $(function(){
+                        
+                         $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+                    })
+                    function SubMit() {
+	var regx = new RegExp(regexEnum.url);
+	var regxNoempty = new RegExp(regexEnum.notempty);
+	var regxHaveText=new RegExp(regexEnum.havetext);
+	var inputUrl = $("#inputUrl");
+	var inputName = $("#inputName");
+	var texDescription = $("#texDescription");
+	if (!regx.test(inputUrl.val())) {
+		inputUrl.parent().addClass("has-error")
+		return false;
+	}
+	else {
+		inputUrl.parent().removeClass("has-error")
+	}
+	if (!regxNoempty.test(inputName.val())) {
+		inputName.parent().addClass("has-error")
+		return false;
+	}
+	else {
+		inputName.parent().removeClass("has-error")
+	}
+	if (!regxHaveText.test(texDescription.val())) {
+		texDescription.parent().addClass("has-error")
+		return false;
+	}
+	else {
+		texDescription.parent().removeClass("has-error")
+	}
+	return true;
+};
+                </script>
+                <% include ../_footer.html %>

@@ -1,0 +1,1 @@
+{"version":3,"file":"UserEntity.js","sourceRoot":"","sources":["UserEntity.ts"],"names":["UserDto","UserDto.constructor"],"mappings":"AAAA;IAGCA,iBAAmBA,YAAYA,EAASA,QAAQA;QAA7BC,iBAAYA,GAAZA,YAAYA,CAAAA;QAASA,aAAQA,GAARA,QAAQA,CAAAA;IAChDA,CAACA;IACFD,cAACA;AAADA,CAACA,AALD,IAKC;AALY,eAAO,UAKnB,CAAA"}
