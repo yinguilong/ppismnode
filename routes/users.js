@@ -11,6 +11,7 @@ var parseUser = require("./common/parseUser");
 var rp = require("request-promise");
 var request = require("request");
 var router = express.Router();
+var DOMAIN = "http://localhost:8088";
 //var request=request();
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -30,7 +31,7 @@ router.post("/register", function (req, res, next) {
     var userDto = new userEntity.UserDto(req.body.LoginAccount, req.body.Password);
     userDto.UserName = req.body.UserName;
     userDtos.push(userDto);
-    request("http://localhost:8088/user/register", {
+    request(DOMAIN + "/user/register", {
         json: true,
         method: "POST",
         body: {
@@ -57,7 +58,7 @@ router.post("/login", function (req, res, next) {
     var userDto = new userEntity.UserDto(req.body.LoginAccount, req.body.Password);
     userDtos.push(userDto);
     var reqEntity = new requestEntity.RequestEntity("login", userDtos.length, userDtos);
-    request("http://localhost:8088/user/validateuser", {
+    request(DOMAIN + "/user/validateuser", {
         json: true,
         method: "POST",
         body: reqEntity
@@ -81,7 +82,7 @@ router.get("/myspace", function (req, res, next) {
     var reqEntity = new requestEntity.RequestEntity("myspace", myboxItems.length, myboxItems);
     var items; //rander视图时的ppboxitems数据;
     var toMyBoxOption = {
-        uri: "http://localhost:8088/ppismitem/mybox",
+        uri: DOMAIN + "/ppismitem/mybox",
         json: true,
         method: "POST",
         body: reqEntity
@@ -107,7 +108,7 @@ router.get("/addppism", function (req, res, next) {
     var items; //rander视图时的ppboxitems数据;
     //请求用户信息
     var toMyOption = {
-        uri: "http://localhost:8088/user/my",
+        uri: DOMAIN + "/user/my",
         json: true,
         method: "POST",
         body: reqEntity
@@ -141,7 +142,7 @@ router.post("/addppism", function (req, res, next) {
     var reqEntity = new requestEntity.RequestEntity("addppism", items.length, items);
     //请求用户信息
     var option = {
-        uri: "http://localhost:8088/ppismitem/add",
+        uri: DOMAIN + "/ppismitem/add",
         json: true,
         method: "POST",
         body: reqEntity
@@ -160,7 +161,7 @@ router.post("/addppism", function (req, res, next) {
 router.get("/ppisms", function (req, res, next) {
     var user = new parseUser.parseUser(req).parse();
     var pageIndex = req.body.pageindex ? req.body.pageindex : 1;
-    var pageSize = 10;
+    var pageSize = 6;
     var myboxItems = [];
     var boxItemQuery = {
         UserId: user.Id,
@@ -170,7 +171,7 @@ router.get("/ppisms", function (req, res, next) {
     myboxItems.push(boxItemQuery);
     var reqEntity = new requestEntity.RequestEntity("ppisms", myboxItems.length, myboxItems);
     var option = {
-        uri: "http://localhost:8088/ppismitem/mybox",
+        uri: DOMAIN + "/ppismitem/mybox",
         json: true,
         method: "POST",
         body: reqEntity
@@ -189,7 +190,7 @@ router.get("/ppisms", function (req, res, next) {
                 queryItems.push(chartQueryEntity);
                 var reqPriceEntity = new requestEntity.RequestEntity("priceItems", queryItems.length, queryItems);
                 var optionPrice = {
-                    uri: "http://localhost:8088/ppismitem/priceitems",
+                    uri: DOMAIN + "/ppismitem/priceitems",
                     json: true,
                     method: "POST",
                     body: reqPriceEntity
@@ -208,6 +209,10 @@ router.get("/ppisms", function (req, res, next) {
         .catch(function (error) {
         res.render("error", { fromUrl: "/users/myspace", toUrl: "/users/login", toUrlTitle: "重新登录", message: "登录失败" });
     });
+});
+router.get('/about', function (req, res, next) {
+    var user = new parseUser.parseUser(req).parse();
+    res.render('users/about', { userDto: user });
 });
 module.exports = router;
 //# sourceMappingURL=users.js.map

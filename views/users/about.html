@@ -1,0 +1,67 @@
+<% include ../_header.html %>
+    <% if(userDto!=undefined)
+          {
+          var headerImg=userDto.headerImg==undefined?"/img/user3-128x128.jpg":userDto.headerImg;
+          %>
+        <div class="wrapper">
+
+            <% include _userheader.html %>
+                <!-- Left side column. contains the logo and sidebar -->
+                <% include _userleft.html %>
+                    <!-- Content Wrapper. Contains page content -->
+                    <div class="content-wrapper">
+                        <!-- Content Header (Page header) -->
+                        <section class="content-header">
+                            <h1>
+        关于我们
+        <small>PPism</small>
+      </h1>
+                            <ol class="breadcrumb">
+                                <li><a href="#"><i class="fa fa-home"></i> 首页</a></li>
+                                <li class="active"></li>
+                            </ol>
+                        </section>
+
+                        <div class="content body">
+
+                            <section id="introduction">
+                                <h2 class="page-header"><a href="#introduction">介绍</a></h2>
+                                <p class="lead">
+                                    <b>PPism</b> 我们是服务于广大网购达人的站点，各种商品价格走势，一目了然，有效避免先涨价再降价，各大购物网站随时监测，价格波动及时掌握！
+                                    我们的目标就是让大家买到物美价廉完美商品。
+                                </p>
+                            </section>
+                            
+                            <!-- /#introduction -->
+                            <section id="download">
+  <h2 class="page-header"><a href="#download">新手教学</a></h2>
+  <p class="lead">
+    简单几步，就可设定自己要关注的商品
+  </p>
+  <pre class="hierarchy bring-up"><code class="language-bash" data-lang="bash">
+ppism/
+├── 复制商品地址/
+│   ├── 浏览器地址栏/
+│   ├── 最好不要登陆购物网站的账号
+├── 打开ppism/
+│   ├── 登陆账号/
+│   │   ├── 登陆ppism的账号
+│   └── 打开首页/
+│       ├── 点击添加关注/
+│       ├── 粘贴商品地址
+│       ├── 填写备注名称
+│       ├── 选择商品类型
+│       ├── 填写商品简介（方便其他人看到）
+│       ├── 确认添加
+└── 最后/
+    ├── 完成上述步骤就可以关注商品价格了</code></pre>
+</section>
+                        </div>
+                    </div>
+                    <!-- /.content-wrapper -->
+                    <% } %>
+                        <% include _usercopright.html %>
+                            <% include _userright.html %>
+        </div>
+        <% include ../_commonjs.html %>
+            <% include ../_footer.html %>

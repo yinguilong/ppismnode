@@ -31,7 +31,7 @@ function AjaxQueryPPisms(i) {
                         "</span>" +
                         "<span class=\"text\">{0}</span>" +
                         "{1}<div class=\"tools\" data-pp-id='{2}'>" +
-                        "<i class=\"fa fa-line-chart\" onclick=\"LookChart('{2}}')\"></i>" +
+                        "<i class=\"fa fa-line-chart\" onclick=\"LookChart('{2}','{0}')\"></i>" +
                         "<span>&nbsp;&nbsp;</span>" +
                         "</div>" +
                         "</li>";
@@ -69,7 +69,8 @@ function AjaxQueryPPisms(i) {
         });
     }
 }
-function LookChart(ppismItemId) {
+function LookChart(ppismItemId, ppismName) {
+    
     var normalModel = "{ \"Name\":\"priceitems\",\"Count\": 1, \"Items\": [{ \"PPismItemId\": \"" + ppismItemId + "\"}] }";
     $.ajax({
         url: "http://localhost:8088/ppismitem/priceitems",
@@ -83,17 +84,20 @@ function LookChart(ppismItemId) {
         success: function (rt) {
             var items = rt.items;
             var data = [];
+            var categories = [];
             for (var i = 0, length = items.length; i < length; i++) {
                 var item = items[i];
-                var price = {
-                    y: item.updateDay,
-                    item1: item.price,
-                    item2: item.activityPrice == 0 ? item.price : item.activityPrice
-                };
-                data.push(price);
+                if(i%2==0||i==length-1)
+                categories.push(item.updateDay);
+                else 
+                {
+                    categories.push('');
+                }
+                data.push(item.price);
             }
             if (data.length > 0) {
-                PPismChart(data);
+                // PPismChart(data);
+                PPismHighChart('line-chart', ppismName, '', ppismName, categories, data);
                 window.location.hash = "#price_chart";
 
             }
@@ -102,9 +106,64 @@ function LookChart(ppismItemId) {
                 $("#myErrorModal").modal();
             }
         },
-        error: function (e) {
+        error: function () {
             console.log(e);
         }
+    });
+}
+function PPismHighChart(containerId, title, subtitle, sName, categories, data) {
+    $('#' + containerId).highcharts({
+        title: {
+            text: title
+        },
+        subtitle: {
+            text: subtitle
+        },
+        credits: {
+            text: 'www.ppism.cn',
+            href: 'http://www.ppism.cn',
+            style: {
+                cursor: 'pointer',
+                color: ' #39cccc'
+            }
+        },
+        xAxis: {
+            categories: categories
+        },
+        yAxis: {
+            labels: {
+                formatter: function () {
+                    return (this.value+'').replace('2015','').replace('-','');
+                }
+            },
+            title: {
+                align: 'high',
+                offset: 0,
+                text: '价格',
+                rotation: 0,
+                y: -10
+            },
+            lineWidth: 2
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            headerFormat: '<b>{series.name}</b><br/>',
+            pointFormat: '{point.y}元'
+        },
+        plotOptions: {
+            spline: {
+                marker: {
+                    enable: false
+                }
+            }
+        },
+        series: [{
+            name: sName,
+            data: data//[[0, 15], [10, -50], [20, -56.5], [30, -46.5], [40, -22.1],
+            //[50, -2.5], [60, -27.7], [70, -55.7], [80, -76.5]]
+        }]
     });
 }
 function PPismChart(data) {

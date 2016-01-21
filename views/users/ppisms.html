@@ -48,7 +48,7 @@
 													<% for(var i=0,length=ppismItems.length;i<length;i++){
 													var ppismItem=ppismItems[i];
 													%>
-														<li >
+														<li  >
 															<!-- drag handle -->
 															<span class="handle ui-sortable-handle">
                         								<i class="fa fa-ellipsis-v"></i>
@@ -71,8 +71,8 @@
 													<small class="label label-info"><i class="fa  fa-arrow-circle-o-right"></i> 无</small>
 													<% }%>
 																		<!-- General tools such as edit or delete-->
-																		<div class="tools" data-pp-id='<%=ppismItem.pPismItemId%>'>
-																			<i class="fa fa-line-chart" onclick="LookChart('<%=ppismItem.pPismItemId%>')"></i>
+																		<div class="tools" data-pp-id='<%=ppismItem.pPismItemId%>' >
+																			<i class="fa fa-line-chart" onclick="LookChart('<%=ppismItem.pPismItemId%>','<%=ppismItem.itemName%>')"></i>
 																			<span>&nbsp;&nbsp;</span>
 																			<!--<i class="fa fa-edit" onclick="EditPPism(this)"></i>
 																			<span>&nbsp;&nbsp;</span>

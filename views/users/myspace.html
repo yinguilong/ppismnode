@@ -34,9 +34,11 @@
           var countAsc=0;
           var countMiss=0;
           var ppismItemId="";
+          var ppismName="";
           if(items!=undefined&&items.length>0)
           {
           ppismItemId=items[0].pPismItemId;
+          ppismName=items[0].itemName
           for(var i=0,count=items.length;i<count;i++){
               var ppboxitem=items[i];
               if(ppboxitem==undefined)
@@ -244,8 +246,9 @@
 <script>
 $(function () {
     var ppismId = '<%=ppismItemId%>';
+    var ppismName='<%=ppismName%>';
     if (ppismId != undefined && ppismId != '')
-        LookChart(ppismId);
+        LookChart(ppismId,ppismName);
 });
 
 </script>
