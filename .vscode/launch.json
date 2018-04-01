@@ -2,13 +2,19 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch Program",
+			"program": "${workspaceFolder}/app.js"
+		},
+		{
 			"name": "Launch",
 			"type": "node",
 			"request": "launch",
-			"program": "app.js",
+			"program": "${workspaceRoot}/app.js",
 			"stopOnEntry": false,
 			"args": [],
-			"cwd": ".",
+			"cwd": "${workspaceRoot}/",
 			"runtimeExecutable": null,
 			"runtimeArgs": [
 				"--nolazy"
@@ -16,9 +22,11 @@
 			"env": {
 				"NODE_ENV": "development"
 			},
-			"externalConsole": false,
+			"console": "internalConsole",
 			"sourceMaps": false,
-			"outDir": null
+			"outFiles":[
+				
+			]
 		},
 		{
 			"name": "Attach",

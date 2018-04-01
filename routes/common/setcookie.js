@@ -1,9 +1,9 @@
+"use strict";
 var cookiehelper = (function () {
     function cookiehelper(valItem, response) {
         this._maxage = 86400 * 1000;
         this._valItem = valItem;
         this._res = response;
-        this.set();
     }
     cookiehelper.prototype.set = function () {
         if (this._valItem == undefined || this._res == undefined)
@@ -21,7 +21,13 @@ var cookiehelper = (function () {
             this._res.cookie("ppismheaderimg", this._valItem.headerImg, { maxAge: this._maxage });
         }
     };
+    cookiehelper.prototype.clear = function () {
+        this._res.clearCookie("ppismloginaccount");
+        this._res.clearCookie("ppismid");
+        this._res.clearCookie("ppismusername");
+        this._res.clearCookie("ppismheaderimg");
+    };
     return cookiehelper;
-})();
+}());
 exports.cookiehelper = cookiehelper;
 //# sourceMappingURL=setcookie.js.map

@@ -1,3 +1,4 @@
+"use strict";
 var parseUser = (function () {
     function parseUser(req) {
         this.req = req;
@@ -21,6 +22,6 @@ var parseUser = (function () {
         return userDto;
     };
     return parseUser;
-})();
+}());
 exports.parseUser = parseUser;
 //# sourceMappingURL=parseUser.js.map

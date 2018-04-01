@@ -5,7 +5,7 @@ export class cookiehelper {
 	constructor(valItem, response) {
 		this._valItem = valItem;
 		this._res = response;
-		this.set();
+		
 	}
 	set() {
 		if (this._valItem == undefined || this._res == undefined) return;
@@ -26,4 +26,10 @@ export class cookiehelper {
 			this._res.cookie("ppismheaderimg", this._valItem.headerImg, { maxAge: this._maxage });
 		}
 	}
+    clear(){
+        this._res.clearCookie("ppismloginaccount");
+        this._res.clearCookie("ppismid");
+        this._res.clearCookie("ppismusername");
+        this._res.clearCookie("ppismheaderimg");
+    }
 }
